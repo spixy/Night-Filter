@@ -94,9 +94,6 @@
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AboutBox1.yo-NG.resx">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

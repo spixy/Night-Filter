@@ -49,7 +49,7 @@
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.fullscreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.onTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.forcedOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forcedslowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forcedmediumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forcedfastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,7 +69,6 @@
             // 
             this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Night Filter 1.5";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
             // 
@@ -89,7 +88,7 @@
             this.aboutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 252);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 224);
             this.contextMenuStrip1.Closing += new System.Windows.Forms.ToolStripDropDownClosingEventHandler(this.contextMenuStrip1_Closing);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
@@ -249,7 +248,7 @@
             this.onTopToolStripMenuItem.CheckOnClick = true;
             this.onTopToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.onTopToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.forcedOnTopToolStripMenuItem,
+            this.forcedslowToolStripMenuItem,
             this.forcedmediumToolStripMenuItem,
             this.forcedfastToolStripMenuItem});
             this.onTopToolStripMenuItem.Name = "onTopToolStripMenuItem";
@@ -257,16 +256,16 @@
             this.onTopToolStripMenuItem.Text = "On top";
             this.onTopToolStripMenuItem.Click += new System.EventHandler(this.onTopToolStripMenuItem_Click);
             // 
-            // forcedOnTopToolStripMenuItem
+            // forcedslowToolStripMenuItem
             // 
-            this.forcedOnTopToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.forcedOnTopToolStripMenuItem.Checked = true;
-            this.forcedOnTopToolStripMenuItem.CheckOnClick = true;
-            this.forcedOnTopToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.forcedOnTopToolStripMenuItem.Name = "forcedOnTopToolStripMenuItem";
-            this.forcedOnTopToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
-            this.forcedOnTopToolStripMenuItem.Text = "Forced (&slow)";
-            this.forcedOnTopToolStripMenuItem.Click += new System.EventHandler(this.forcedOnTopToolStripMenuItem_Click);
+            this.forcedslowToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.forcedslowToolStripMenuItem.Checked = true;
+            this.forcedslowToolStripMenuItem.CheckOnClick = true;
+            this.forcedslowToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.forcedslowToolStripMenuItem.Name = "forcedslowToolStripMenuItem";
+            this.forcedslowToolStripMenuItem.Size = new System.Drawing.Size(192, 26);
+            this.forcedslowToolStripMenuItem.Text = "Forced (&slow)";
+            this.forcedslowToolStripMenuItem.Click += new System.EventHandler(this.forcedslowToolStripMenuItem_Click);
             // 
             // forcedmediumToolStripMenuItem
             // 
@@ -371,7 +370,6 @@
             this.Name = "Form1";
             this.Opacity = 0.5D;
             this.ShowInTaskbar = false;
-            this.Text = "Night Filter 1.5";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -405,7 +403,7 @@
         private System.Windows.Forms.ToolStripMenuItem otherToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ToolStripMenuItem forcedOnTopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forcedslowToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;

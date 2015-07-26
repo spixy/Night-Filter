@@ -4,18 +4,16 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Night_Filter.Properties;
 
 namespace Night_Filter
 {
     public partial class Form1 : Form
     {
+        private float deltaChange = 0.02f;
         private int initialStyle;
         private DateTime lastEvent;
         private Point mouse;
-
-        private const string HomePage = "https://github.com/spixy/Night-Filter";
-        private const string UpdateFile = "https://raw.githubusercontent.com/spixy/Night-Filter/master/lastversion";
-        private readonly string ConfigFile = Environment.CurrentDirectory + "\\NightFilter.ini";
 
         private bool IsFullscreen
         {
@@ -27,6 +25,9 @@ namespace Night_Filter
             InitializeComponent();
 
             MouseWheel += Form1_MouseWheel;
+
+            Text = Application.ProductName;
+            notifyIcon1.Text = string.Format("{0} {1}", Application.ProductName, Application.ProductVersion);
         }
 
         // General
@@ -37,52 +38,49 @@ namespace Night_Filter
 
             for (byte k = 1; k < Args.Length; k++)
             {
-                if (Args[k].ToUpper() == "/HIDE")
+                switch (Args[k].ToUpper())
                 {
-                    Hide();
-                    showToolStripMenuItem.Text = "Show";
-                }
-                else if (Args[k].ToUpper() == "/NOFS")
-                {
-                    ToggleFullScreen(false);
-                    fullscreenToolStripMenuItem.Checked = false;
-                }
-                else
-                {
-                    try
-                    {
-                        double n = Convert.ToInt32(Args[k]) / 100d;
-                        SetOpacity(n);
-                    }
-                    catch
-                    {
-                        // ignored
-                    }
+                    case "/HIDE":
+                        ToggleVisibility();
+                        break;
+
+                    case "/NOFS":
+                        SetFullScreen(false);
+                        break;
+
+                    default:
+                        int opacity;
+
+                        if (int.TryParse(Args[k], out opacity))
+                            SetOpacity(opacity / 100d);
+                        break;
                 }
             }
         }
 
         private void LoadConfig()
         {
-            if (!File.Exists(ConfigFile))
+            if (!File.Exists(Resources.ConfigFile))
                 return;
 
             try
             {
-                string[] lines = File.ReadAllLines(ConfigFile);
+                string[] lines = File.ReadAllLines(Resources.ConfigFile);
 
-                BackColor = Color.FromArgb(Convert.ToInt32(lines[0]));
+                int color;
+                if (int.TryParse(lines[0], out color))
+                    BackColor = Color.FromArgb(color);
 
                 if (lines[1] == "0")
-                    fullscreenToolStripMenuItem.PerformClick();
+                    SetFullScreen(false);
 
                 if (lines[2] == "0")
-                    clickThroughToolStripMenuItem.PerformClick();
+                    SetClickThrough(false);
 
                 switch (lines[3])
                 {
                     case "0":
-                        forcedOnTopToolStripMenuItem.PerformClick();
+                        forcedslowToolStripMenuItem.PerformClick();
                         break;
                     case "1.5":
                         forcedmediumToolStripMenuItem.PerformClick();
@@ -92,8 +90,11 @@ namespace Night_Filter
                         break;
                 }
 
-                double n = Convert.ToDouble(lines[4]);
-                SetOpacity(n);
+                double opacity;
+                if (double.TryParse(lines[4], out opacity))
+                    SetOpacity(opacity);
+
+                float.TryParse(lines[5], out deltaChange);
             }
             catch
             {
@@ -103,18 +104,19 @@ namespace Night_Filter
 
         private void SaveConfig()
         {
-            using (StreamWriter sw = new StreamWriter(ConfigFile, false))
+            using (StreamWriter sw = new StreamWriter(Resources.ConfigFile, false))
             {
                 sw.WriteLine(BackColor.ToArgb());
                 sw.WriteLine(fullscreenToolStripMenuItem.Checked ? "1" : "0");
                 sw.WriteLine(clickThroughToolStripMenuItem.Checked ? "1" : "0");
 
-                if (forcedOnTopToolStripMenuItem.Checked) sw.WriteLine("1");
+                if (forcedslowToolStripMenuItem.Checked) sw.WriteLine("1");
                 else if (forcedmediumToolStripMenuItem.Checked) sw.WriteLine("1.5");
                 else if (forcedfastToolStripMenuItem.Checked) sw.WriteLine("2");
                 else sw.WriteLine("0");
 
                 sw.WriteLine(Opacity);
+                sw.WriteLine(deltaChange);
             }
         }
 
@@ -134,27 +136,40 @@ namespace Night_Filter
             }
         }
 
-        private void ToggleFullScreen(bool value)
+        private void SetFullScreen(bool value)
         {
             if (value)
             {
                 WindowState = FormWindowState.Maximized;
                 FormBorderStyle = FormBorderStyle.None;
+                ShowInTaskbar = false;
 
-                if (clickThroughToolStripMenuItem.Checked)
-                    Utility.SetWindowLong(Handle, -20, initialStyle);
-
-                clickThroughToolStripMenuItem.Checked = false;
-                clickThroughToolStripMenuItem.PerformClick();
+                SetClickThrough(clickThroughToolStripMenuItem.Checked);
             }
             else
             {
                 WindowState = FormWindowState.Normal;
                 FormBorderStyle = FormBorderStyle.Sizable;
+                ShowInTaskbar = true;
 
-                if (clickThroughToolStripMenuItem.Checked)
-                    Utility.SetWindowLong(Handle, -20, initialStyle);
+                SetClickThrough(clickThroughToolStripMenuItem.Checked);
             }
+
+            fullscreenToolStripMenuItem.Checked = value;
+        }
+
+        private void SetClickThrough(bool value)
+        {
+            if (value)
+            {
+                Utility.SetWindowLong(Handle, -20, initialStyle);
+            }
+            else
+            {
+                FormBorderStyle = (fullscreenToolStripMenuItem.Checked) ? FormBorderStyle.None : FormBorderStyle.Sizable;
+            }
+
+            clickThroughToolStripMenuItem.Checked = value;
         }
 
         private void SetOpacity(double opacity)
@@ -174,6 +189,13 @@ namespace Night_Filter
             }
         }
 
+        private void ToggleOnTop()
+        {
+            TopMost = onTopToolStripMenuItem.Checked;
+            forcedslowToolStripMenuItem.Enabled = onTopToolStripMenuItem.Checked;
+            forcedfastToolStripMenuItem.Enabled = onTopToolStripMenuItem.Checked;
+        }
+
         private ToolStripMenuItem FindMenuItem(int opacity)
         {
             foreach (ToolStripMenuItem item in brightnessToolStripMenuItem.DropDownItems)
@@ -191,10 +213,10 @@ namespace Night_Filter
         {
             initialStyle = Utility.GetWindowLong(Handle, -20) | 0x80000 | 0x20;
             lastEvent = DateTime.Now;
-            Utility.SetWindowLong(Handle, -20, initialStyle);
+
+            SetClickThrough(true);
 
             LoadConfig();
-
             LoadArgs();
         }
 
@@ -232,11 +254,11 @@ namespace Night_Filter
 
             if (e.Delta > 0)
             {
-                SetOpacity(Opacity + 0.02);
+                SetOpacity(Opacity + deltaChange);
             }
             else if (e.Delta < 0)
             {
-                SetOpacity(Opacity - 0.02);
+                SetOpacity(Opacity - deltaChange);
             }
         }
 
@@ -251,15 +273,15 @@ namespace Night_Filter
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
-            if (forcedOnTopToolStripMenuItem.Checked)
+            if (forcedslowToolStripMenuItem.Checked)
                 timer1.Enabled = false;
 
-            runAtStartupToolStripMenuItem.Checked = Utility.IsAtStartup("Night Filter");
+            runAtStartupToolStripMenuItem.Checked = Utility.IsAtStartup(Application.ProductName);
         }
 
         private void contextMenuStrip1_Closing(object sender, ToolStripDropDownClosingEventArgs e)
         {
-            if (forcedOnTopToolStripMenuItem.Checked)
+            if (forcedslowToolStripMenuItem.Checked)
                 timer1.Enabled = true;
         }
 
@@ -270,7 +292,7 @@ namespace Night_Filter
 
         private void changeColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (forcedOnTopToolStripMenuItem.Checked)
+            if (forcedslowToolStripMenuItem.Checked)
                 timer1.Enabled = false;
 
             colorDialog1.Color = BackColor;
@@ -278,7 +300,7 @@ namespace Night_Filter
             if (colorDialog1.ShowDialog() == DialogResult.OK)
                 BackColor = colorDialog1.Color;
 
-            if (forcedOnTopToolStripMenuItem.Checked)
+            if (forcedslowToolStripMenuItem.Checked)
                 timer1.Enabled = true;
         }
 
@@ -319,27 +341,25 @@ namespace Night_Filter
 
         private void fullscreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ToggleFullScreen(fullscreenToolStripMenuItem.Checked);
+            SetFullScreen(fullscreenToolStripMenuItem.Checked);
         }
 
         private void onTopToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TopMost = onTopToolStripMenuItem.Checked;
-            forcedOnTopToolStripMenuItem.Enabled = onTopToolStripMenuItem.Checked;
-            forcedfastToolStripMenuItem.Enabled = onTopToolStripMenuItem.Checked;
+            ToggleOnTop();
         }
 
-        private void forcedOnTopToolStripMenuItem_Click(object sender, EventArgs e)
+        private void forcedslowToolStripMenuItem_Click(object sender, EventArgs e)
         {
             forcedmediumToolStripMenuItem.Checked = false;
             forcedfastToolStripMenuItem.Checked = false;
-            timer1.Enabled = forcedOnTopToolStripMenuItem.Checked;
+            timer1.Enabled = forcedslowToolStripMenuItem.Checked;
             timer1.Interval = 250;
         }
 
         private void forcedmediumToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            forcedOnTopToolStripMenuItem.Checked = false;
+            forcedslowToolStripMenuItem.Checked = false;
             forcedfastToolStripMenuItem.Checked = false;
             timer1.Enabled = forcedmediumToolStripMenuItem.Checked;
             timer1.Interval = 50;
@@ -347,7 +367,7 @@ namespace Night_Filter
 
         private void forcedfastToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            forcedOnTopToolStripMenuItem.Checked = false;
+            forcedslowToolStripMenuItem.Checked = false;
             forcedmediumToolStripMenuItem.Checked = false;
             timer1.Enabled = forcedfastToolStripMenuItem.Checked;
             timer1.Interval = 16;
@@ -355,33 +375,26 @@ namespace Night_Filter
 
         private void clickThroughToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (clickThroughToolStripMenuItem.Checked)
-            {
-                Utility.SetWindowLong(Handle, -20, initialStyle);
-            }
-            else
-            {
-                FormBorderStyle = (fullscreenToolStripMenuItem.Checked) ? FormBorderStyle.None : FormBorderStyle.Sizable;
-            }
+            SetClickThrough(clickThroughToolStripMenuItem.Checked);
         }
 
         private void runAtStartupToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!Utility.SetAsStartup("Night Filter", runAtStartupToolStripMenuItem.Checked))
+            if (!Utility.SetAsStartup(Application.ProductName, runAtStartupToolStripMenuItem.Checked))
             {
                 MessageBox.Show("Cannot change startup settings", "Error");
-                runAtStartupToolStripMenuItem.Checked = Utility.IsAtStartup("Night Filter");
+                runAtStartupToolStripMenuItem.Checked = Utility.IsAtStartup(Application.ProductName);
             }
         }
 
         private void checkForUpdateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Updater updater = new Updater(UpdateFile);
+            Updater updater = new Updater(Resources.UpdateFile);
 
             if (updater.IsUpdateAvailable() &&
                 MessageBox.Show("Update Available. Download new version?", "Update Available", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Process.Start(HomePage);
+                Process.Start(Resources.HomePage);
             }
         }
 
@@ -415,7 +428,7 @@ namespace Night_Filter
             {
                 if ((DateTime.Now - lastEvent).Milliseconds > 200)
                 {
-                    ToggleFullScreen(!IsFullscreen);
+                    SetFullScreen(!IsFullscreen);
                     lastEvent = DateTime.Now;
                 }
             }
@@ -437,8 +450,8 @@ namespace Night_Filter
             else if (Utility.IsKeyPressed(Utility.VirtualKeyStates.D7) || Utility.IsKeyPressed(Utility.VirtualKeyStates.VK_NUMPAD7)) toolStripMenuItem4.PerformClick();
             else if (Utility.IsKeyPressed(Utility.VirtualKeyStates.D8) || Utility.IsKeyPressed(Utility.VirtualKeyStates.VK_NUMPAD8)) toolStripMenuItem3.PerformClick();
             else if (Utility.IsKeyPressed(Utility.VirtualKeyStates.D9) || Utility.IsKeyPressed(Utility.VirtualKeyStates.VK_NUMPAD9)) toolStripMenuItem2.PerformClick();
-            else if (Utility.IsKeyPressed(Utility.VirtualKeyStates.VK_PLUS)) SetOpacity(Opacity + 0.02);
-            else if (Utility.IsKeyPressed(Utility.VirtualKeyStates.VK_MINUS)) SetOpacity(Opacity - 0.02);
+            else if (Utility.IsKeyPressed(Utility.VirtualKeyStates.VK_PLUS)) SetOpacity(Opacity + deltaChange);
+            else if (Utility.IsKeyPressed(Utility.VirtualKeyStates.VK_MINUS)) SetOpacity(Opacity - deltaChange);
         }
     }
 }

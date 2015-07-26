@@ -12,15 +12,17 @@ namespace Night_Filter
         [STAThread]
         static void Main()
         {
-            bool createdNew = true;
-            using (Mutex mutex = new Mutex(true, "Night Filter", out createdNew))
+            bool createdNew;
+
+            // Limit to one application instance
+            using (new Mutex(true, Application.ProductName, out createdNew))
             {
-                if (createdNew)
-                {
-                    Application.EnableVisualStyles();
-                    Application.SetCompatibleTextRenderingDefault(false);
-                    Application.Run(new Form1());
-                }
+                if (!createdNew)
+                    return;
+
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new Form1());
             }
         }
     }

@@ -117,47 +117,248 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tableLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="labelCompanyName.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="labelCompanyName.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="okButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="okButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="labelCompanyName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
+  <data name="okButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>327, 249</value>
   </data>
-  <data name="labelCompanyName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 88</value>
+  <data name="okButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
-  <data name="labelCompanyName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 0, 4, 0</value>
+  <data name="okButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 30</value>
   </data>
-  <data name="labelCompanyName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>263, 39</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="okButton.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
-  <data name="labelCompanyName.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
+  <data name="okButton.Text" xml:space="preserve">
+    <value>&amp;OK</value>
   </data>
-  <data name="labelCompanyName.Text" xml:space="preserve">
-    <value>Company Name</value>
+  <data name="&gt;&gt;okButton.Name" xml:space="preserve">
+    <value>okButton</value>
   </data>
-  <data name="&gt;&gt;labelCompanyName.Name" xml:space="preserve">
-    <value>labelCompanyName</value>
+  <data name="&gt;&gt;okButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;labelCompanyName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelCompanyName.Parent" xml:space="preserve">
+  <data name="&gt;&gt;okButton.Parent" xml:space="preserve">
     <value>tableLayoutPanel</value>
   </data>
-  <data name="&gt;&gt;labelCompanyName.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;okButton.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="textBoxDescription.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="textBoxDescription.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="textBoxDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 137</value>
+  </data>
+  <data name="textBoxDescription.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 4, 4, 4</value>
+  </data>
+  <data name="textBoxDescription.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="textBoxDescription.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="textBoxDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 104</value>
+  </data>
+  <data name="textBoxDescription.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="textBoxDescription.Text" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="&gt;&gt;textBoxDescription.Name" xml:space="preserve">
+    <value>textBoxDescription</value>
+  </data>
+  <data name="&gt;&gt;textBoxDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxDescription.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;textBoxDescription.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="labelCopyright.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="labelCopyright.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="labelCopyright.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelCopyright.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 67</value>
+  </data>
+  <data name="labelCopyright.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 4, 0</value>
+  </data>
+  <data name="labelCopyright.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 21</value>
+  </data>
+  <data name="labelCopyright.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 21</value>
+  </data>
+  <data name="labelCopyright.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="labelCopyright.Text" xml:space="preserve">
+    <value>Copyright</value>
+  </data>
+  <data name="labelCopyright.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;labelCopyright.Name" xml:space="preserve">
+    <value>labelCopyright</value>
+  </data>
+  <data name="&gt;&gt;labelCopyright.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelCopyright.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;labelCopyright.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="labelVersion.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="labelVersion.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="labelVersion.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelVersion.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 34</value>
+  </data>
+  <data name="labelVersion.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 4, 0</value>
+  </data>
+  <data name="labelVersion.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 21</value>
+  </data>
+  <data name="labelVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 21</value>
+  </data>
+  <data name="labelVersion.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="labelVersion.Text" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="labelVersion.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;labelVersion.Name" xml:space="preserve">
+    <value>labelVersion</value>
+  </data>
+  <data name="&gt;&gt;labelVersion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelVersion.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;labelVersion.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="labelProductName.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="labelProductName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="labelProductName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelProductName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 0</value>
+  </data>
+  <data name="labelProductName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 4, 0</value>
+  </data>
+  <data name="labelProductName.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 21</value>
+  </data>
+  <data name="labelProductName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 21</value>
+  </data>
+  <data name="labelProductName.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="labelProductName.Text" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="labelProductName.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;labelProductName.Name" xml:space="preserve">
+    <value>labelProductName</value>
+  </data>
+  <data name="&gt;&gt;labelProductName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelProductName.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;labelProductName.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelWebsite.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelWebsite.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="labelWebsite.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="labelWebsite.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelWebsite.Location" type="System.Drawing.Point, System.Drawing">
+    <value>170, 100</value>
+  </data>
+  <data name="labelWebsite.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 4, 0</value>
+  </data>
+  <data name="labelWebsite.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 33</value>
+  </data>
+  <data name="labelWebsite.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="labelWebsite.Text" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="&gt;&gt;labelWebsite.Name" xml:space="preserve">
+    <value>labelWebsite</value>
+  </data>
+  <data name="&gt;&gt;labelWebsite.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelWebsite.Parent" xml:space="preserve">
+    <value>tableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;labelWebsite.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tableLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="logoPictureBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -645,6 +846,9 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="logoPictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="logoPictureBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 4</value>
   </data>
@@ -652,7 +856,7 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="logoPictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 249</value>
+    <value>154, 275</value>
   </data>
   <data name="logoPictureBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -672,192 +876,6 @@
   <data name="&gt;&gt;logoPictureBox.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="labelProductName.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="labelProductName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="labelProductName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 0</value>
-  </data>
-  <data name="labelProductName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 0, 4, 0</value>
-  </data>
-  <data name="labelProductName.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 21</value>
-  </data>
-  <data name="labelProductName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>263, 21</value>
-  </data>
-  <data name="labelProductName.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="labelProductName.Text" xml:space="preserve">
-    <value>Product Name</value>
-  </data>
-  <data name="labelProductName.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;labelProductName.Name" xml:space="preserve">
-    <value>labelProductName</value>
-  </data>
-  <data name="&gt;&gt;labelProductName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelProductName.Parent" xml:space="preserve">
-    <value>tableLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;labelProductName.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="labelVersion.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="labelVersion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="labelVersion.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 30</value>
-  </data>
-  <data name="labelVersion.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 0, 4, 0</value>
-  </data>
-  <data name="labelVersion.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 21</value>
-  </data>
-  <data name="labelVersion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>263, 21</value>
-  </data>
-  <data name="labelVersion.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="labelVersion.Text" xml:space="preserve">
-    <value>Version</value>
-  </data>
-  <data name="labelVersion.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;labelVersion.Name" xml:space="preserve">
-    <value>labelVersion</value>
-  </data>
-  <data name="&gt;&gt;labelVersion.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelVersion.Parent" xml:space="preserve">
-    <value>tableLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;labelVersion.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="labelCopyright.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="labelCopyright.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="labelCopyright.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 59</value>
-  </data>
-  <data name="labelCopyright.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 0, 4, 0</value>
-  </data>
-  <data name="labelCopyright.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 21</value>
-  </data>
-  <data name="labelCopyright.Size" type="System.Drawing.Size, System.Drawing">
-    <value>263, 21</value>
-  </data>
-  <data name="labelCopyright.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="labelCopyright.Text" xml:space="preserve">
-    <value>Copyright</value>
-  </data>
-  <data name="labelCopyright.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;labelCopyright.Name" xml:space="preserve">
-    <value>labelCopyright</value>
-  </data>
-  <data name="&gt;&gt;labelCopyright.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelCopyright.Parent" xml:space="preserve">
-    <value>tableLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;labelCopyright.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="textBoxDescription.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="textBoxDescription.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="textBoxDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>169, 131</value>
-  </data>
-  <data name="textBoxDescription.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 4, 4, 4</value>
-  </data>
-  <data name="textBoxDescription.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="textBoxDescription.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
-    <value>Vertical</value>
-  </data>
-  <data name="textBoxDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>263, 81</value>
-  </data>
-  <data name="textBoxDescription.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="textBoxDescription.Text" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="&gt;&gt;textBoxDescription.Name" xml:space="preserve">
-    <value>textBoxDescription</value>
-  </data>
-  <data name="&gt;&gt;textBoxDescription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxDescription.Parent" xml:space="preserve">
-    <value>tableLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;textBoxDescription.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="okButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <data name="okButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>325, 222</value>
-  </data>
-  <data name="okButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="okButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 31</value>
-  </data>
-  <data name="okButton.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="okButton.Text" xml:space="preserve">
-    <value>&amp;OK</value>
-  </data>
-  <data name="&gt;&gt;okButton.Name" xml:space="preserve">
-    <value>okButton</value>
-  </data>
-  <data name="&gt;&gt;okButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;okButton.Parent" xml:space="preserve">
-    <value>tableLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;okButton.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="tableLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -871,7 +889,7 @@
     <value>6</value>
   </data>
   <data name="tableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>436, 257</value>
+    <value>438, 283</value>
   </data>
   <data name="tableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -889,7 +907,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="labelCompanyName" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="logoPictureBox" Row="0" RowSpan="6" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelProductName" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelVersion" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCopyright" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxDescription" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="okButton" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,37,06667,Percent,62,93333" /&gt;&lt;Rows Styles="Percent,11,73576,Percent,11,3011,Percent,11,43585,Percent,15,1751,Percent,34,63035,Percent,15,16588,Absolute,25,Absolute,20,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="labelWebsite" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="logoPictureBox" Row="0" RowSpan="6" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="labelProductName" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelVersion" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="labelCopyright" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="textBoxDescription" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="okButton" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,37,06667,Percent,62,93333" /&gt;&lt;Rows Styles="Percent,12,18871,Percent,11,73728,Percent,11,87723,Percent,11,66078,Percent,39,57597,Percent,12,46905" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -898,7 +916,7 @@
     <value>120, 120</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>460, 279</value>
+    <value>462, 305</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>

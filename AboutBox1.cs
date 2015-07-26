@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Windows.Forms;
+using Night_Filter.Properties;
 
 namespace Night_Filter
 {
@@ -38,19 +39,6 @@ namespace Night_Filter
             }
         }
 
-        public string AssemblyDescription
-        {
-            get
-            {
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
-                if (attributes.Length == 0)
-                {
-                    return "";
-                }
-                return ((AssemblyDescriptionAttribute)attributes[0]).Description;
-            }
-        }
-
         public string AssemblyProduct
         {
             get
@@ -76,19 +64,6 @@ namespace Night_Filter
                 return ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
             }
         }
-
-        public string AssemblyCompany
-        {
-            get
-            {
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
-                if (attributes.Length == 0)
-                {
-                    return "";
-                }
-                return ((AssemblyCompanyAttribute)attributes[0]).Company;
-            }
-        }
         #endregion
 
         private void AboutBox1_Load(object sender, EventArgs e)
@@ -100,24 +75,22 @@ namespace Night_Filter
             Lines[3] = "Alt+Plus  \t Increase filter";
             Lines[4] = "Alt+Minus \t Decrease filter";
             Lines[5] = "";
-
             Lines[6] = "Command line parameters:";
             Lines[7] = "XX    \t percent count (0-100)";
             Lines[8] = "/NOFS \t disable fullscreen";
             Lines[9] = "/HIDE \t do not apply filter";
 
-            Text = String.Format("About {0}", AssemblyTitle);
+            Text = string.Format("About {0}", AssemblyTitle);
             labelProductName.Text = AssemblyProduct;
-            labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+            labelVersion.Text = string.Format("Version {0}", AssemblyVersion);
             labelCopyright.Text = AssemblyCopyright;
-            labelCompanyName.Text = AssemblyCompany;
             textBoxDescription.Lines = Lines;
         }
 
         private void labelCompanyName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            labelCompanyName.LinkVisited = true;
-            System.Diagnostics.Process.Start("http://www." + AssemblyCompany);
+            labelWebsite.LinkVisited = true;
+            System.Diagnostics.Process.Start(Resources.HomePage);
         }
     }
 }

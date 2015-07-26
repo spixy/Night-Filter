@@ -54,13 +54,29 @@ namespace Night_Filter
             VK_F12 = 0x7B,
         }
 
+        /// <summary>
+        /// Retrieves the status of the specified virtual key
+        /// </summary>
         [DllImport("user32.dll")]
         private static extern short GetKeyState(VirtualKeyStates nVirtKey);
+
+        /// <summary>
+        /// Retrieves information about the specified window
+        /// </summary>
         [DllImport("user32.dll")]
         public static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+        /// <summary>
+        /// Changes an attribute of the specified window
+        /// </summary>
         [DllImport("user32.dll")]
         public static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
+        /// <summary>
+        /// Uncheck all items except "exclude"
+        /// </summary>
+        /// <param name="exclude">item to check</param>
+        /// <param name="where">items collection</param>
         public static void Uncheck(ToolStripMenuItem exclude, ToolStripItemCollection where)
         {
             foreach (ToolStripMenuItem item in where)
@@ -69,6 +85,11 @@ namespace Night_Filter
             }
         }
 
+        /// <summary>
+        /// Check if program is set at system startup
+        /// </summary>
+        /// <param name="program">program name</param>
+        /// <returns>true if registry key exists, else if not</returns>
         public static bool IsAtStartup(string program)
         {
             try
@@ -82,6 +103,12 @@ namespace Night_Filter
             }
         }
 
+        /// <summary>
+        /// Set program at system startup
+        /// </summary>
+        /// <param name="program">program name</param>
+        /// <param name="value">true if set at startup, false if remove from startup</param>
+        /// <returns>true if success, false if error</returns>
         public static bool SetAsStartup(string program, bool value)
         {
             try
@@ -94,13 +121,13 @@ namespace Night_Filter
                 if (value)
                 {
                     rk.SetValue(program, Application.ExecutablePath);
-                    return true;
                 }
                 else
                 {
                     rk.DeleteValue(program, false);
-                    return true;
                 }
+
+                return true;
             }
             catch
             {
@@ -108,9 +135,12 @@ namespace Night_Filter
             }
         }
 
-        public static bool IsKeyPressed(VirtualKeyStates testKey)
+        /// <summary>
+        /// Check whether key was pressed
+        /// </summary>
+        public static bool IsKeyPressed(VirtualKeyStates key)
         {
-            switch (GetKeyState(testKey))
+            switch (GetKeyState(key))
             {
                 case 0: // Not pressed and not toggled on.
                 case 1: // Not pressed, but toggled on

@@ -59,5 +59,32 @@ namespace Night_Filter.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NightFilter.ini.
+        /// </summary>
+        internal static string ConfigFile {
+            get {
+                return ResourceManager.GetString("ConfigFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://github.com/spixy/Night-Filter.
+        /// </summary>
+        internal static string HomePage {
+            get {
+                return ResourceManager.GetString("HomePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://raw.githubusercontent.com/spixy/Night-Filter/master/lastversion.
+        /// </summary>
+        internal static string UpdateFile {
+            get {
+                return ResourceManager.GetString("UpdateFile", resourceCulture);
+            }
+        }
     }
 }
